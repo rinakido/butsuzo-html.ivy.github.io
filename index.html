@@ -1,67 +1,300 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>仏像美術展・・・静寂と祈り</title>
-  <link rel="icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>祈りの静けさ　仏像と建築の造形美</title>
+    <link rel="icon" href="favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
+    <style>
+        
+        body {
+            margin: 0;
+            background-color: #1c2233; /* 鉄紺 */
+            font-family: "Zen Maru Gothic", sans-serif;
+            color: #f8f8f8; /* 背景が濃い色なので、文字色は明るい色に修正 */
+        }
+        header {
+  background-color: #1c2233;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  padding: 2em 0;
+  text-align: center;
+  border-bottom: 2px solid #a3337c;
+  position: relative;
+}
+
+        header h1 {
+            font-size: 2em;
+            color: #cca6bf; /* 紅藤色 */
+            letter-spacing: 0.1em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5em;
+            font-family: 'Zen Kurenaido', sans-serif;
+        }
+        header h1::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            height: 4%;
+            background-color: #d4af37;
+        }
+        header h1::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            height: 2px;
+            background-color: #a3337c;
+        }
+        .intro, .architecture, .essay { /* .miura-interview-section はこのファイルには含まれないので削除 */
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: rgba(242, 244, 245, 0.1); /* 月白の淡い背景 */
+            border-left: 5px solid #cca6bf; /* 紅藤色のアクセント */
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #f0f0f0; /* 全体で#f0f0f0を使うと読みやすい */
+        }
+        main > section {
+            padding: 3em 1em;
+        }
+        .section-title {
+            text-align: center;
+            color: #cca6bf;
+            font-family: 'Zen Kurenaido', sans-serif;
+            font-size: 1.8em;
+            margin: 2em auto 1em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #d4af37;
+            display: inline-block;
+        }
+
+        /* --- ギャラリー（仏像と建築の両方に適用） --- */
+        .gallery, .arch-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* minmaxを調整 */
+            gap: 1.5em;
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ギャラリーアイテム共通のスタイル */
+        /* .item, .arch-item を a タグとして扱い、全体をリンク化 */
+        .item, .arch-item {
+            position: relative;
+            background-color: #f2f4f5; /* 背景色を追加 */
+            border: 3px solid #cca6bf; /* 枠線を追加 */
+            border-radius: 10px; /* 角丸を追加 */
+            overflow: hidden;
+            text-decoration: none; /* リンクの下線を削除 */
+            color: inherit; /* リンクの文字色を親から継承 */
+            display: flex; /* Flexboxで縦に並べる */
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー用トランジション */
+            cursor: pointer; /* カーソルをポインターにする */
+
+            opacity: 0; /* アニメーションの初期状態 */
+            transform: translateY(20px); /* アニメーションの初期状態 */
+            animation: fadeInUp 0.8s ease forwards; /* アニメーション適用 */
+        }
+
+        /* アニメーション遅延 */
+        .item:nth-child(1), .arch-item:nth-child(1) { animation-delay: 0.1s; }
+        .item:nth-child(2), .arch-item:nth-child(2) { animation-delay: 0.2s; }
+        .item:nth-child(3), .arch-item:nth-child(3) { animation-delay: 0.3s; }
+        .item:nth-child(4), .arch-item:nth-child(4) { animation-delay: 0.4s; }
+        .item:nth-child(5), .arch-item:nth-child(5) { animation-delay: 0.5s; }
+        .item:nth-child(6), .arch-item:nth-child(6) { animation-delay: 0.6s; }
+        .item:nth-child(7), .arch-item:nth-child(7) { animation-delay: 0.7s; }
+        .item:nth-child(8), .arch-item:nth-child(8) { animation-delay: 0.8s; }
+
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 画像のスタイル */
+        .item img, .arch-item img {
+            width: 100%;
+            height: 250px; /* 統一した高さに調整 */
+            object-fit: contain; /* 画像が枠内に全て収まるように変更 */
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            flex-shrink: 0; /* 画像が縮まないように */
+        }
+
+        /* ホバー効果 (アイテム全体を浮かせて、影を強調する) */
+        .item:hover, .arch-item:hover {
+            transform: translateY(-5px); /* アイテム全体を少し上に移動 */
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6); /* 金色の影を濃くして"光る"効果 */
+        }
+
+        /* アイテムのタイトル（常に表示される文字） */
+        .item span, .arch-item span {
+            display: block; /* ブロック要素にして縦に配置 */
+            padding: 0.5em 1em 0.2em; /* パディングを調整 */
+            font-size: 1.1em;
+            font-weight: bold; /* 太字にする */
+            color: #1c2233; /* 文字色 */
+            background-color: #f2f4f5; /* 白系の背景色 */
+            text-align: center;
+        }
+
+        /* 常に表示される詳細テキスト */
+        .description-text {
+            display: block; /* ブロック要素にして縦に配置 */
+            font-size: 0.9em; /* フォントサイズを調整 */
+            color: #4a4a4a; /* 落ち着いた文字色 */
+            padding: 0 1em 1em; /* パディングを調整 */
+            text-align: left;
+            line-height: 1.5; /* 行間を調整 */
+            background-color: #f2f4f5; /* 白系の背景色 */
+            border-radius: 0 0 8px 8px; /* 下の角丸 */
+            flex-grow: 1; /* 残りのスペースを埋める */
+        }
+        
+        /* 新しいフッターリンクのスタイル */
+        .footer-secret-link {
+            font-size: 0.8em; /* 小さめ */
+            color: #666; /* 目立たない色 */
+            text-decoration: none; /* 下線なし */
+            transition: color 0.3s ease;
+            display: block; /* 独立した行に */
+            margin-top: 0.5em; /* 上の要素との間に少し隙間 */
+        }
+        .footer-secret-link:hover {
+            color: #d4af37; /* ホバーで少し強調 */
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #1c2233;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            .gallery, .arch-gallery {
+                grid-template-columns: 1fr;
+            }
+            .item.large {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>仏像美術展・・・静寂と祈り</h1>
-  </header>
+<body id="top">
+    <header>
+        <h1>静けさの造形　仏像と建築の造形美</h1>
+    </header>
 
-  <section class="intro">
-    <p>
-      「仏像美術展・・・静寂と祈り」は、時を超えて受け継がれてきた仏像の造形美を静かに見つめる展覧会です。
-      木や金属に刻まれた表情、静けさをたたえた姿勢、そして繊細な装飾。
-      ここに並ぶ作品たちは、ただ信仰の対象というだけではなく、日本人の美意識や工芸の粋が込められた美術品です。
-      静寂に包まれた空間の中で、それぞれの仏像が放つ静かな存在感をご体感ください。
-    </p>
-  </section>
-
-  <main>
-    <section>
-      <h2 class="section-title">仏像ギャラリー</h2>
-      <section class="gallery">
-       <a href="https://ja.wikipedia.org/wiki/阿弥陀如来" class="item large" target="_blank" rel="noopener noreferrer">
-      <img src="https://i.pinimg.com/originals/fe/18/75/fe18756d0b735e0ff3adf7ae806fe88b.jpg" alt="阿弥陀如来" />
-      <span>阿弥陀如来</span>
-      <p class="detail-text">
-        平等院鳳凰堂の堂内には、ご本尊である阿弥陀如来坐像が静かに鎮座しています。
-        平安時代、宮廷や藤原摂関家の御用を務めた、当代随一の仏師・定朝（じょうちょう）が
-        手掛けた仏像で、現存する唯一の作例として知られています。極めて貴重な遺品であり、国宝に指定されています。
-      </p>
-    </a>
-
-        <a href="fudo.html" class="item">
-          <img src="34375cf04f23d6810dee93b2e0b4e4a7.jpg" alt="不動明王" />
-          <span>不動明王</span>
-          <p class="detail-text">
-           東寺・御影堂に安置される不動明王像は、弘法大師空海の念持仏と伝えられる秘仏で、日本最古級の不動明王像として国宝に指定されています。
-
-          怒りの姿で現れる不動明王は、大日如来の化身とされ、右手に剣、左手に縄、背に火焔を背負い、迷える衆生を救済します。その厳しい表情の中に、　
-          深い慈悲が宿っています。
-          東寺は京都市南区にある真言宗の総本山で、世界遺産に登録され、多くの国宝を所蔵しています。
-            </p>
-        </a>
-        <a href="miroku.html" class="item">
-          <img src="c0315700_17533315.jpg" alt="弥勒菩薩" />
-          <span>弥勒菩薩</span>
-          <p class="detail-text"> 
-
-            字を打つ
-            </p>
-        </a>
-      </section>
+    <section class="intro">
+        <p>
+            ここでは、時を超えて受け継がれてきた仏像の造形美と現代建築との親和性を感じてほしいです。木や金属に刻まれた表情、静けさをたたえた姿勢、そして繊細な装飾。ここに並ぶ作品たちは、ただ信仰の対象というだけではなく、日本人の美意識や工芸の粋が込められた美術品です。仏像と現代建築その静かな佇まいをご覧ください。
+        </p>
     </section>
-  </main>
 
-  <footer>
-    <hr style="border: none; border-top: 1px solid #444; margin-bottom: 1em;" />
-    <p><a href="#" style="color: #aaa; text-decoration: underline;">トップへ戻る</a></p>
-    <p>© 2025 仏像美術展（授業用）</p>
-  </footer>
+    <main>
+        <section style="text-align: center;">
+            <h2 class="section-title">仏像写真アーカイブ</h2>
+            <section class="gallery">
+                <a href="https://www.byodoin.or.jp/learn/sculpture/" class="item large" target="_blank">
+                    <img src="https://i.pinimg.com/originals/fe/18/75/fe18756d0b735e0ff3adf7ae806fe88b.jpg" alt="平等院鳳凰堂 阿弥陀如来坐像" />
+                    <span>阿弥陀如来</span>
+                    <p class="description-text">平等院鳳凰堂の堂内にある阿弥陀如来坐像。穏やかな眼差しと静かな微笑は、救いと慈しみのかたちです。端正な姿は、空間に安心とひかりをもたらします</p>
+                </a>
+                <a href="https://toji.or.jp/ten/" class="item large" target="_blank">
+                    <img src="262-6.jpg" alt="東寺 不動明王立像" />
+                    <span>不動明王</span>
+                    <p class="description-text">東寺・御影堂の不動明王像。怒りの形相は、迷いを断ち切るための力そのもの。人の本能を見抜き、恐れをもって心を試す。その厳しさの奥には静かな慈悲が宿っています。</p>
+                </a>
+                <a href="http://www.chuguji.jp/archaic-smile/" class="item large" target="_blank">
+                    <img src="c0315700_17533315.jpg" alt="中宮寺 弥勒菩薩半跏思惟像" />
+                    <span>弥勒菩薩</span>
+                    <p class="description-text">中宮寺蔵・弥勒菩薩半跏思惟像。思案する未来仏、弥勒菩薩。遠い時を見つめるような姿勢は、今ここにある苦しみと希望を静かに抱きとめます。柔らかな曲線と落ち着いた佇まいが、空間にやさしい余白をもたらします。</p>
+                </a>
+                <a href="https://www.shorinji-temple.jp/about/statue/" class="item large" target="_blank">
+                    <img src="statue-main01.jpg" alt="勝林寺 十一面観音立像" />
+                    <span>十一面観音</span>
+                    <p class="description-text">すべてを見通す十一面観音。十一の表情は、多様な苦しみに寄り添い、様々な人の願いに応える存在です柔らかく立つその姿は、空間に深い静けさと気配をもたらします。</p>
+                </a>
+            </section>
+        </section>
+
+        <section class="architecture">
+            <h2 class="section-title">現代建築に見る“祈りの空間”</h2>
+            <p>
+                仏像が安置される空間と現代建築に共通するのは、静けさと精神性です。そうした気配は、伝統的な仏堂だけでなく、現代建築にも確かに息づいています。磯崎新が設計した《アートプラザ》は、幾何学的な構成と静謐な空間が印象的で、静けさに身を委ねる空間としての建築を提示します。隈研吾による《梼原 木橋ミュージアム》は、木の温もりと自然との調和が“祈り”の感覚を呼び起こします。ル・コルビュジエの《国立西洋美術館》は、光と空間の構成に精神性を感じさせ、イサム・ノグチの《モエレ沼公園》は、大地そのものを彫刻としたようなスケールで、瞑想的な場を生み出しています。
+
+                杉本博司の《江之浦測候所》は、時間と自然、宇宙のスケールといった要素を空間に取り込み、そこでは自然と人、外界と内面の境界があいまいになり、存在そのものに向き合うような場が立ち現れます。安藤忠雄の《光の教会》は、壁に刻まれた十字型のスリットから差し込む光が内部を満たし、言葉にならない思いを静かに受け止めるような、澄んだ気配が漂っています。光と静寂が訪れる者の感覚を深く沈め、思考や感情をそっと見つめ直すような時間を生み出す、建築としての祈りのあり方を提示しています。
+            </p>
+            <div class="arch-gallery">
+                <a href="https://www.city.oita.oita.jp/o204/bunkasports/rekishi/artpuraza.html" class="arch-item" target="_blank">
+                    <img src="DSC06809.jpg" alt="アートプラザ（磯崎新）外観" />
+                    <span>アートプラザ（磯崎新）</span>
+                    <p class="description-text">磯崎新が設計した《アートプラザ》は、幾何学的な構成と静謐な空間が印象的で、静けさに身を委ねる空間としての建築を提示します。</p>
+                </a>
+                <a href="https://kkaa.co.jp/project/yusuhara-wooden-bridge-museum/" class="arch-item" target="_blank">
+                    <img src="YWBM_for-web_01.jpg" alt="梼原 木橋ミュージアム（隈研吾）外観" />
+                    <span>梼原 木橋ミュージアム（隈研吾）</span>
+                    <p class="description-text">隈研吾による《梼原 木橋ミュージアム》は、木の温もりと自然との調和が“祈り”の感覚を呼び起こします。</p>
+                </a>
+                <a href="https://www.nmwa.go.jp/" class="arch-item" target="_blank">
+                    <img src="seiyou30.jpg" alt="国立西洋美術館（ル・コルビュジエ）内部" />
+                    <span>国立西洋美術館（ル・コルビュジエ）</span>
+                    <p class="description-text">ル・コルビュジエの《国立西洋美術館》は、光と空間の構成に精神性を感じさせます。</p>
+                </a>
+                <a href="https://moerenumapark.jp/" class="arch-item" target="_blank">
+                    <img src="cfff76_5a0dcf6083cd41c5b27b9c0676cc5296~mv2_d_2048_1360_s_2 (1).avif" alt="モエレ沼公園（イサム・ノグチ）ランドスケープ" />
+                    <span>モエレ沼公園（イサム・ノグチ）</span>
+                    <p class="description-text">イサム・ノグチの《モエレ沼公園》は、大地そのものを彫刻としたようなスケールで、瞑想的な場を生み出しています。</p>
+                </a>
+                <a href="https://www.odawara-af.com/ja/enoura/" class="arch-item" target="_blank">
+                    <img src="img_cadad4e0092aec18af45aaf8e820c7d11303603.jpg" alt="杉本博司 江之浦測候所" />
+                    <span>江之浦測候所 (杉本博司)</span>
+                    <p class="description-text">杉本博司の《江之浦測候所》は、時間と自然、宇宙のスケールといった要素を空間に取り込み、存在そのものに向き合うような場が立ち現れます。</p>
+                </a>
+                <a href="http://www.hetgallery.com/church-of-the-light.html" class="arch-item" target="_blank">
+                    <img src="image.jpg" alt="光の教会 安藤忠雄 内部" />
+                    <span>光の教会 (安藤忠雄)</span>
+                    <p class="description-text">安藤忠雄の《光の教会》は、壁に刻まれた十字型のスリットから差し込む光が内部を満たし、言葉にならない思いを静かに受け止めるような、澄んだ気配が漂っています。</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="essay">
+            <h2 class="section-title">静けさを感じる場所</h2>
+            <p>
+                時を超えて、私たちの心に深く響く「静けさ」。それは、古代の仏像が放つ穏やかな佇まいの中にも、現代建築が織りなす光と影の空間の中にも存在します。仏像が何世紀もの間、人々の祈りを受け止めてきたように、建築もまた、人々の感情や思考を包み込む「器」としての役割を果たしています。
+
+                これらの造形は、単なる形や構造を超え、視覚だけでなく、心に語りかける力を持ちます。仏像の繊細な表情や衣のひだ、あるいは建築のミニマルなラインや素材の質感は、私たちに日常の喧騒から離れた、静かで豊かな時間を与えてくれます。
+
+                この展覧会を通して、皆さんがそれぞれの「静けさ」を見つけ、日々の生活に新たなインスピレーションが生まれることを願っています。
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <hr style="border: none; border-top: 1px solid #444; margin-bottom: 1em;" />
+        <p><a href="#top" style="color: #aaa; text-decoration: underline;">トップへ戻る</a></p>
+        <p><a href="miura_interview.html" class="footer-secret-link" target="_blank">みうらじゅん「ウルトラマンの世界観と共通」仏像の魅力を語る</a></p>
+        <p>© 2025 仏像美術展（授業用）</p>
+    </footer>
 </body>
 </html>
