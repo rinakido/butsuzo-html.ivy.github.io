@@ -2,14 +2,22 @@ body {
   margin: 0;
   background-color: #1c2233; /* 鉄紺 */
   font-family: "Zen Maru Gothic", sans-serif;
-  color: #f8f8f8; /* 胡粉色 */
+  color: #f0f0f0; /* 背景が濃い色なので、文字色は明るい色に修正 */
 }
 
 header {
   background-color: #1c2233;
-  padding: 1em 0;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  padding: 2em 0;
   text-align: center;
   border-bottom: 2px solid #a3337c;
+  position: relative;
 }
 
 header h1 {
@@ -42,7 +50,7 @@ header h1::before {
   background-color: #a3337c;
 }
 
-.intro {
+.intro, .architecture, .essay { /* .architectureと.essayも追加 */
   max-width: 800px;
   margin: 2em auto;
   padding: 1em;
@@ -50,7 +58,7 @@ header h1::before {
   border-left: 5px solid #cca6bf; /* 紅藤色のアクセント */
   font-size: 1.1em;
   line-height: 1.8;
-  color: #f0f0f0;
+  color: #f0f0f0; /* 全体で#f0f0f0を使うと読みやすい */
 }
 
 main > section {
@@ -59,79 +67,148 @@ main > section {
 
 .section-title {
   text-align: center;
+  /* width: 100%; <- inline-blockと競合するため削除か調整 */
   color: #cca6bf;
   font-family: 'Zen Kurenaido', sans-serif;
   font-size: 1.8em;
-  margin-bottom: 1em;
-  position: relative;
-  display: inline-block;
+  margin: 2em auto 1em; /* margin-bottomを調整 */
   padding-bottom: 0.3em;
   border-bottom: 2px solid #d4af37;
+  display: inline-block; /* 中央揃えにはこれで十分 */
+  /* text-emphasis: center; <- CSSプロパティとして存在しないので削除 */
 }
 
-.gallery {
+/* --- ギャラリー（仏像と建築の両方に適用） --- */
+.gallery, .arch-gallery { /* arch-galleryにも適用 */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* minmaxを調整 */
   gap: 1.5em;
   padding: 2em;
   max-width: 1200px;
   margin: auto;
 }
 
-.item {
+/* ギャラリーアイテム共通のスタイル */
+.item, .arch-item { /* .arch-itemにも適用 */
   position: relative;
-  background-color: #f2f4f5; /* 月白 */
-  border: 3px solid #cca6bf; /* 紅藤色 */
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  z-index: 1;
+  background-color: #f2f4f5; /* 背景色を追加 */
+  border: 3px solid #cca6bf; /* 枠線を追加 */
+  border-radius: 10px; /* 角丸を追加 */
+  overflow: hidden; /* キャプションの表示に影響しないように */
+  text-decoration: none; /* aタグのスタイルをリセット */
+  display: block; /* aタグをブロック要素にする */
+
+  opacity: 0; /* アニメーションの初期状態 */
+  transform: translateY(20px); /* アニメーションの初期状態 */
+  animation: fadeInUp 0.8s ease forwards; /* アニメーション適用 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー用トランジション */
 }
 
-.item.large {
-  grid-column: span 2;
+/* アニメーション遅延 */
+.item:nth-child(1), .arch-item:nth-child(1) { animation-delay: 0.1s; }
+.item:nth-child(2), .arch-item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3), .arch-item:nth-child(3) { animation-delay: 0.3s; }
+.item:nth-child(4), .arch-item:nth-child(4) { animation-delay: 0.4s; }
+.item:nth-child(5), .arch-item:nth-child(5) { animation-delay: 0.5s; }
+.item:nth-child(6), .arch-item:nth-child(6) { animation-delay: 0.6s; }
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.item.large img {
-  height: auto;
-  max-height: 400px;
-}
-
-.item::before {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border: 2px solid #d4af37; /* 金色 */
-  border-radius: 6px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(204, 166, 191, 0.4); /* 紅藤の影 */
-  background-color: #ffffff;
-}
-
-.item img {
+/* 画像のスタイル */
+.item img, .arch-item img { /* .arch-itemにも適用 */
   width: 100%;
+  height: 250px; /* 統一した高さに調整 */
+  object-fit: cover; /* 画像がはみ出さないように調整 */
+  border-radius: 6px; /* 角丸 */
+  display: block; /* ブロック要素にする */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease; /* 画像の拡大用トランジション */
+}
+
+/* ホバー効果 (アイテム全体を浮かせて、画像を拡大する) */
+.item:hover, .arch-item:hover {
+  transform: translateY(-5px); /* アイテム全体を少し上に移動 */
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6); /* 金色の影を濃くする */
+}
+
+.item:hover img, .arch-item:hover img {
+  transform: scale(1.05); /* 画像を拡大 */
+}
+
+
+/* キャプションのスタイル (HTMLで.captionを使う場合) */
+.item .caption, .arch-item .caption { /* .arch-itemにも適用 */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(28, 34, 51, 0.85); /* 鉄紺の半透明 */
+  color: #cca6bf; /* 紅藤色 */
+  padding: 0.7em 0.5em; /* パディングを調整 */
+  font-size: 1.0em; /* フォントサイズを調整 */
+  text-align: center;
+  opacity: 0; /* 初期状態は非表示 */
+  transition: opacity 0.3s ease; /* フェードイン/アウト用トランジション */
+  border-radius: 0 0 8px 8px;
+  pointer-events: none; /* テキスト選択を邪魔しない */
+}
+
+.item:hover .caption, .arch-item:hover .caption { /* .arch-itemにも適用 */
+  opacity: 1; /* ホバーで表示 */
+}
+
+/* 現在のHTMLにあるdetail-textへの対応 */
+.detail-text {
+  font-size: 0.9em;
+  color: #1c2233; /* 背景色に合わせて濃い色にする */
+  padding: 0.8em 1em 1em; /* パディングを調整 */
+  text-align: left;
+  line-height: 1.5;
+  background-color: #f2f4f5; /* 背景色 */
+  border-radius: 0 0 4px 4px; /* 上部の角丸は不要 */
+  margin: 0; /* マージンをリセット */
+  position: relative; /* キャプションと同時に使わない場合 */
+  z-index: 1; /* キャプションの下に隠れないように */
+}
+
+/* ----- 以下は既存のスタイル ----- */
+
+.image-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.5em;
+}
+
+.image-row img {
+  width: 100px;
   height: auto;
-  display: block;
   border-radius: 6px;
+  object-fit: cover;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.item span {
-  display: block;
-  padding: 0.5em;
-  font-size: 1.1em;
+.nav-link {
+  margin: 0 0.5em;
+  padding: 0.3em 0.8em;
+  background-color: #cca6bf;
   color: #1c2233;
-  background-color: rgba(204, 166, 191, 0.2); /* 紅藤の透かし */
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #d4af37;
 }
 
 footer {
@@ -140,42 +217,4 @@ footer {
   background-color: #1c2233;
   color: #aaa;
   font-size: 0.9em;
-}
-.detail-text {
-  font-size: 0.9em;             /* 少し小さめの文字 */
-  color: #4a4a4a;               /* 読みやすい暗めのグレー */
-  padding: 0 1em 1em 1em;       /* 左右と下に余白 */
-  text-align: left;             /* 左揃え */
-  line-height: 1.5;             /* 行間を広めに */
-  background-color: #fff;       /* 白背景（任意） */
-  border-radius: 4px;           /* 角丸（任意） */
-  margin: 0.5em 0 0 0;          /* 上余白は少し */
-}
-.item a, .item a * {
-  color: inherit;
-  text-decoration: none;
-}
-
-.detail-text {
-  color: #4a4a4a !important;
-  text-decoration: none !important;
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 600px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .item.large {
-    grid-column: span 1;
-  }
-
-  .intro {
-    padding: 1em 0.5em;
-  }
-
-  .section-title {
-    font-size: 1.5em;
-  }
 }
