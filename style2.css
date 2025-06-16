@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    background-color: #1c2233; /* 鉄紺 */
+    font-family: "Zen Maru Gothic", sans-serif;
+    color: #f8f8f8;
+    line-height: 1.8;
+    padding: 2em 1em;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(242, 244, 245, 0.1);
+    padding: 2em;
+    border-left: 5px solid #cca6bf;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #cca6bf;
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-family: 'Zen Kurenaido', sans-serif;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 0.5em;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interview-meta {
+    font-size: 0.9em;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+.chat-message.miura .speaker-icon {
+    background-color: #d4af37;
+}
+
+.chat-message.sakurai .speaker-icon {
+    background-color: #cca6bf;
+}
+
+.speaker-icon {
+    flex-shrink: 0;
+    width: 55px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #1c2233;
+    font-size: 0.8em;
+    line-height: 1;
+}
+
+.message-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.8em 1.2em;
+    border-radius: 15px;
+    position: relative;
+    max-width: calc(100% - 60px);
+}
+
+.chat-message.miura .message-content {
+    margin-left: auto;
+    background-color: rgba(212, 175, 55, 0.2);
+}
+
+.chat-message.sakurai .message-content {
+    margin-right: auto;
+    background-color: rgba(204, 166, 191, 0.2);
+}
+
+.chat-message.miura .message-content::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 15px;
+    border: 10px solid transparent;
+    border-left-color: rgba(212, 175, 55, 0.2);
+    border-right: 0;
+    border-top: 0;
+}
+
+.chat-message.sakurai .message-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 15px;
+    border: 10px solid transparent;
+    border-right-color: rgba(204, 166, 191, 0.2);
+    border-left: 0;
+    border-top: 0;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #ccc;
+    text-align: right;
+    margin-top: 2em;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 3em;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #f8f8f8;
+}
+
+.intro-text {
+    margin-bottom: 2em;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #d4af37;
+    border-radius: 5px;
+}
