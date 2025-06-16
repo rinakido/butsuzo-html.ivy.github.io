@@ -1,1 +1,1 @@
-# butsuzo.html.ivy.github.io
+# butsuzo-html.ivy.github.io
