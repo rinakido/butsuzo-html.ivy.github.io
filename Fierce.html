@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不動明王 - 詳細情報</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>不動明王（ふどうみょうおう）</h1>
+    </header>
+
+    <main>
+       <section id="introduction" class="intro-flex">
+            <img src="R.jpg" alt="不動明王の画像" width="400">
+            <p>不動明王（ふどうみょうおう、梵: अचलनाथ acalanātha）は、密教における明王の一尊で、大日如来の化身とされる。五大明王の中心であり、真言宗・天台宗・禅宗・日蓮宗・修験道などで広く信仰されている。</p>
+        </section>
+
+        <section id="name">
+            <h2>名称と由来</h2>
+            <p>梵名「アチャラナータ（acalanātha）」は「揺るぎなき守護者」を意味し、不動の尊名は8世紀前半の経典に初出する。大日如来の教令輪身として、猛々しい忿怒相で衆生を救うとされる。</p>
+        </section>
+
+        <section id="overview">
+            <h2>概要</h2>
+            <p>密教の根本尊である大日如来の化身と見なされ、「お不動さん」と親しまれる。真言宗では脇侍、天台宗では在家本尊として信仰され、毎月28日は縁日とされる。</p>
+        </section>
+
+        <section id="mantra">
+            <h2>真言・種子・三昧耶形</h2>
+            <h3>真言</h3>
+            <ul>
+                <li><strong>小咒（不動真言）</strong>: ノウマク サンマンダ バザラダン カン（namaḥ samantavajrānāṃ hāṃ）</li>
+                <li><strong>慈救咒</strong>: ノウマク サンマンダ バザラダン センダ マカロシャダ ソワタヤ ウンタラタ カンマン</li>
+                <li><strong>火界咒（長真言）</strong>: ノウマク サラバタタギャテイビャク …（火界咒全文）</li>
+            </ul>
+            <h3>種子</h3>
+            <p>種子字は「カン（हां）」または「カンマン（ह्म्मां）」。</p>
+            <h3>三昧耶形</h3>
+            <p>利剣（倶利伽羅剣）と羂索（けんさく）を携える。印相には不動根本印・不動剣印などがある。</p>
+        </section>
+
+        <section id="origins">
+            <h2>起源と歴史</h2>
+            <p>「アチャラナータ」の名は8世紀前半の漢訳経典に現れる。密教では三輪身（如来・菩薩・明王）概念のもと、大日如来の教令輪身とされる。インドのシヴァ神との関係を想起させるが、造形上の共通点に過ぎないという指摘もある。</p>
+            <p>日本には空海が唐から五大明王を伝え、平安時代を通じて護国修法や鎮護国家祈祷の本尊となった。天台宗・修験道でも信仰が広まり、中世には庶民にも普及した。</p>
+        </section>
+
+        <section id="iconography">
+            <h2>像容と作例</h2>
+            <p>一面二臂の忿怒像で、三鈷剣と羂索を携え、身体は青黒く、髪は七髷または蓮華髷。牙を上下に剥き出しにする姿が特徴。</p>
+            <h3>日本の主な作例</h3>
+            <ul>
+                <li><strong>東寺講堂像</strong>（空海（弘法大師）作風）</li>
+                <li><strong>浪切不動像</strong>（高野山南院）</li>
+                <li><strong>黄不動</strong>（園城寺・円珍感得像）</li>
+            </ul>
+            <h3>眷属：不動三尊・八大童子</h3>
+            <p>不動明王はよく背景に矜羯羅童子（右脇侍）と制吒迦童子（左脇侍）を従え、不動三尊として表される。さらに八大童子や三十六童子、四十八使者といった多くの眷属も描かれる。</p>
+        </section>
+    </main>
+
+    <footer>
+          <p><a href="index.html" style="color:#cca6bf; text-decoration: underline;">トップへ戻る</a></p>
+        <p>&copy; 2025 阿弥陀如来情報ページ</p>
+    
+    </footer>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = document.querySelectorAll('.scroll-fade');
+
+  function checkVisibility() {
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    targets.forEach(target => {
+      const rect = target.getBoundingClientRect();
+      const screenBottom = scrollY + windowHeight;
+      const elemTop = scrollY + rect.top;
+
+      if (screenBottom > elemTop + rect.height * 0.2) {
+        target.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('resize', checkVisibility);
+  checkVisibility();
+});
+
+</script>
+
+        <p>&copy; 2025 不動明王情報ページ</p>
+    </footer>
+</body>
+</html>

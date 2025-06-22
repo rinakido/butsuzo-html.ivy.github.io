@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弥勒菩薩 - 詳細情報</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>弥勒菩薩（みろくぼさつ）</h1>
+    </header>
+
+    <main>
+       <section id="introduction" class="intro-flex">
+            <img src="c0315700_17533315.jpg" alt="弥勒菩薩像" width="200">
+            <p>弥勒菩薩は、釈迦牟尼仏（お釈迦さま）の次にこの世に現れるとされる<strong>未来仏</strong>です。現在は兜率天（とそつてん）において修行や説法を続けており、56億7千万年後にこの世界に下生し、悟りを開いて人々を救済するとされています。</p>
+        </section>
+
+        <section id="name">
+            <h2>名称</h2>
+            <p>梵名は <strong>Maitreya（マイトレーヤ）</strong>、巴利語では <strong>Metteyya（メッテイヤ）</strong>。その語源は「慈しみ（maitrī, mettā）」であり、「<strong>慈氏菩薩</strong>」とも意訳されます。</p>
+            <p>一部の経典では、弥勒菩薩の字（あざな）は「阿逸多（Ajita）」とされることもありますが、初期経典では阿逸多と弥勒は別人とされることもあります。</p>
+        </section>
+
+        <section id="teachings">
+            <h2>教義と信仰</h2>
+            <p>弥勒菩薩は、お釈迦さまの入滅後、56億7千万年後にこの世界に出現し、<strong>竜華樹下</strong>で悟りを得て仏陀となるとされています。このとき三度の説法を行い、合計で約282億の衆生を救うとされます（これを「<strong>竜華三会</strong>」といいます）。</p>
+            <p>弥勒が現れるまでの間に、<strong>兜率天</strong>に往生してそこで共に修行しようとする信仰（<strong>上生信仰</strong>）が、中国・朝鮮・日本を中心に広まりました。</p>
+            <p>また、弥勒は<strong>バラモン</strong>の家に生まれ、出家し、悟りを開いて説法するという未来仏としての姿も強調されます。</p>
+        </section>
+
+        <section id="scriptures">
+            <h2>主な経典</h2>
+            <p>弥勒菩薩に関する主な経典は以下の<strong>弥勒三部経</strong>です。</p>
+            <ul>
+                <li><strong>『観弥勒菩薩上生兜率天経』</strong>：兜率天に往生する方法とその功徳を説く。</li>
+                <li><strong>『弥勒下生経』</strong>：弥勒の下生と未来における衆生救済について説く。</li>
+                <li><strong>『弥勒大成仏経』</strong>：成仏後の説法活動や功徳を中心に説く。</li>
+            </ul>
+            <p>また、『無量寿経』では、釈迦が弥勒に阿弥陀仏の本願を後の世の衆生に伝えるよう託す場面も登場します。</p>
+        </section>
+
+        <section id="origin">
+            <h2>成立年代と地域</h2>
+            <p>弥勒菩薩の信仰は非常に古く、すでに『阿含経』などの初期経典にもその名前が見られます。仏教における「未来仏」の概念は、過去七仏の思想から発展したものとされます。</p>
+            <p>特に大乗仏教が広がる中で、弥勒の存在は強調され、現世と未来をつなぐ希望の象徴として信仰されてきました。</p>
+        </section>
+
+        <section id="iconography">
+            <h2>像容と作例</h2>
+            <p>弥勒菩薩の像は、<strong>如来形</strong>（すでに成仏した姿）または<strong>菩薩形</strong>（修行中の姿）で表されます。三昧耶形は<strong>蓮華上の塔</strong>や<strong>賢瓶（けんびょう）</strong>。種子（種子字）は <strong>यु（yu）</strong> です。</p>
+            <p>特に日本では、思惟像（頬に手を添えて思案する姿）として表される弥勒菩薩像が有名です。</p>
+
+            <h3>主な作例（日本）</h3>
+            <ul>
+                <li><strong>広隆寺</strong>: 「木造半跏思惟像」 – 飛鳥時代、日本最古級の国宝仏像</li>
+                <li><strong>中宮寺</strong>: 「木造菩薩半跏像」 – 飛鳥時代、奈良の代表的な仏像</li>
+                <li><strong>法隆寺</strong>: 弥勒如来像（夢殿安置）</li>
+                <li><strong>東京国立博物館</strong>: 「弥勒菩薩立像」（13世紀、鎌倉時代） – 重要文化財</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+         <p><a href="index.html" style="color:#cca6bf; text-decoration: underline;">トップへ戻る</a></p>
+        <p>&copy; 2025 阿弥陀如来情報ページ</p>
+    
+    </footer>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = document.querySelectorAll('.scroll-fade');
+
+  function checkVisibility() {
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    targets.forEach(target => {
+      const rect = target.getBoundingClientRect();
+      const screenBottom = scrollY + windowHeight;
+      const elemTop = scrollY + rect.top;
+
+      if (screenBottom > elemTop + rect.height * 0.2) {
+        target.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('resize', checkVisibility);
+  checkVisibility();
+});
+
+</script>
+
+        <p>&copy; 2025 弥勒菩薩情報ページ</p>
+    </footer>
+</body>
+</html>

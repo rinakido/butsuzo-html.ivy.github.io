@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十一面観音 - 詳細情報</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>十一面観音（じゅういちめんかんのん）</h1>
+    </header>
+
+    <main>
+            <section id="introduction" class="intro-flex">
+            <img src="11.png" alt="十一面観音像" width="200">
+            <p>十一面観音は、観音菩薩の変化身の一つで、頭部に11の顔を持ちます。密教では重要な尊格とされ、阿修羅道の衆生を救済するとされています。</p>
+        </section>
+
+        <section id="origin">
+            <h2>起源と信仰</h2>
+            <p>ヒンドゥー教の影響下に7世紀頃成立したとされ、日本では奈良時代から信仰されてきました。病気平癒や厄除け、現世利益を願って造像・信仰が盛んになりました。</p>
+        </section>
+
+        <section id="appearance">
+            <h2>像容</h2>
+            <p>通常は、頭上に仏面、正面に慈悲面、左右に憤怒面・白牙上出面、背面に大笑面を備えます。右手に数珠または垂下、左手に蓮華を挿した花瓶を持つことが多いです。</p>
+            <p>長谷寺式では右手に大錫杖を持つのが特徴です。</p>
+        </section>
+
+        <section id="benefits">
+            <h2>信仰による功徳</h2>
+            <ul>
+                <li>病気にかからない</li>
+                <li>怨敵からの害を受けない</li>
+                <li>金銀財宝や食物に困らない</li>
+                <li>火・水・刃物によって害を受けない</li>
+                <li>早死にしない、極楽往生できる</li>
+            </ul>
+        </section>
+
+        <section id="examples">
+            <h2>代表的な作例（国宝）</h2>
+            <ul>
+                <li>聖林寺像（奈良時代）</li>
+                <li>法華寺像（平安時代）</li>
+                <li>向源寺（渡岸寺）像（平安時代）</li>
+                <li>室生寺像（平安時代）</li>
+            </ul>
+        </section>
+
+        <section id="mantra">
+            <h2>真言と陀羅尼</h2>
+            <p><strong>真言（短）:</strong><br>
+            オン　ロケイジンバラ　キリク</p>
+            <p><strong>真言（長）:</strong><br>
+            オン　マカ　キャロニキャ　ソワカ</p>
+            <p><strong>十一面神呪:</strong><br>
+            オン・ダラ・ダラ・ジリ・ジリ・ドロ・ドロ・イチバチ、シャレイ・シャレイ・ハラシャレイ・ハラシャレイ・クソメイ・クソマ、バレイ・イリ・ミリ・シリ・シチ・ジャラ・マハナヤ・ハラマ・シュダ・サタバ・マカキャロニキャ・ソワカ</p>
+        </section>
+
+    </main>
+
+    <footer>
+         <p><a href="index.html" style="color:#cca6bf; text-decoration: underline;">トップへ戻る</a></p>
+        <p>&copy; 2025 阿弥陀如来情報ページ</p>
+    
+    </footer>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = document.querySelectorAll('.scroll-fade');
+
+  function checkVisibility() {
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    targets.forEach(target => {
+      const rect = target.getBoundingClientRect();
+      const screenBottom = scrollY + windowHeight;
+      const elemTop = scrollY + rect.top;
+
+      if (screenBottom > elemTop + rect.height * 0.2) {
+        target.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('resize', checkVisibility);
+  checkVisibility();
+});
+
+</script>
+
+        <p>&copy; 2025 仏像ギャラリー</p>
+    </footer>
+</body>
+</html>
