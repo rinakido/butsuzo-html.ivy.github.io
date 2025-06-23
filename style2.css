@@ -139,3 +139,76 @@ h1 {
     border-left: 3px solid #d4af37;
     border-radius: 5px;
 }
+@media (max-width: 768px) {
+    /* 画面幅が768px以下の場合に適用されるスタイル（タブレットや大きめのスマホ向け） */
+    body {
+        padding: 1em 0.5em; /* 小さな画面向けのパディング調整 */
+    }
+
+    .container {
+        padding: 1.5em; /* コンテナのパディング調整 */
+    }
+
+    h1 {
+        font-size: 1.5em; /* モバイル向けの小さな見出し */
+        margin-bottom: 1em;
+    }
+
+    .interview-meta {
+        font-size: 0.9em; /* メタ情報のテキストを小さく */
+        margin-bottom: 1.5em;
+    }
+
+    .chat-message {
+        gap: 0.8em; /* アイコンとメッセージの間のスペースを縮小 */
+    }
+
+    .speaker-icon {
+        width: 45px; /* モバイル向けの小さなアイコン */
+        height: 35px;
+        font-size: 0.7em; /* アイコン内のテキストを小さく */
+    }
+
+    .message-content {
+        font-size: 0.9em; /* **ここが吹き出しのフォントサイズを携帯向けに設定する箇所です** */
+        padding: 0.7em 1em; /* 吹き出しのパディングを調整 */
+        max-width: calc(100% - 50px); /* アイコンが小さくなった分、最大幅を調整 */
+    }
+
+    /* 吹き出しの矢印の位置とサイズを調整 */
+    .chat-message.miura .message-content::after {
+        right: -8px;
+        top: 12px;
+        border: 8px solid transparent;
+        border-left-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .chat-message.sakurai .message-content::before {
+        left: -8px;
+        top: 12px;
+        border: 8px solid transparent;
+        border-right-color: rgba(204, 166, 191, 0.2);
+    }
+
+    .note {
+        font-size: 0.9em;
+        margin-top: 1.5em;
+    }
+
+    .back-link {
+        font-size: 1em;
+        margin-top: 2.5em;
+    }
+
+    .intro-text {
+        margin-bottom: 1.5em;
+        padding: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* さらに小さな画面（一部のスマホなど）向けの調整 */
+    .message-content {
+        font-size: 0.85em; /* さらにフォントサイズを小さく */
+    }
+}

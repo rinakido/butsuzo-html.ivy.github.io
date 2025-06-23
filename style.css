@@ -247,11 +247,11 @@
     padding: 3em 1.5em;
     max-width: 1100px;
     margin: auto;
-    border-left: 6px solid #c4c5c6;
-    border-right: 6px solid #c4c5c6;
-    border-bottom: 3px solid #c4c5c6;
+     border-left: 6px solid #4a6fa5; /* 深いコバルトブルー */
+    border-right: 6px solid #4a6fa5; /* 深いコバルトブルー */
+    border-bottom: 3px solid #4a6fa5; /* 深いコバルトブルー */
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 15px rgba(74, 111, 165, 0.3);
     position: relative;  /* ::before用に必須 */
     z-index: 1;
     overflow: hidden;
@@ -263,14 +263,14 @@
     height: auto;
     flex-shrink: 0;
     border-radius: 10px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ホバー時の拡大・影 */
 .intro-flex img:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.25);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
 }
 
 /* 文章部分 */
@@ -278,12 +278,12 @@
     max-width: 520px;
     font-size: 1.15em;
     line-height: 1.9;
-    color: #f8f8f8;
+    color:#e0e6ee;
     font-family: "Zen Kurenaido", "Zen Maru Gothic", serif;
-    background-color: rgba(230, 228, 202, 0.03);
+    background-color: rgba(40, 60, 80, 0.4);
     padding: 1.2em;
     border-radius: 10px;
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 5px rgba(120, 180, 255, 0.1);
 }
 
 /* 画面幅が768px以下のとき（スマホなど） */
@@ -310,8 +310,8 @@
     width: 200%;
     height: 200%;
     background:
-      radial-gradient(circle at center, rgba(255, 255, 200, 0.07), transparent 60%),
-      linear-gradient(120deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+       radial-gradient(circle at center, rgba(170, 220, 255, 0.08), transparent 60%), /* 淡い水色の光 */
+      linear-gradient(120deg, rgba(74, 111, 165, 0.04) 0%, transparent 100%); /* ボーダーと同系色の光 */
     transform: translateX(-50%) rotate(5deg);
     pointer-events: none;
     z-index: 0;
