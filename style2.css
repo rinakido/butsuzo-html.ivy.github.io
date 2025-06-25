@@ -71,11 +71,13 @@ h1 {
 }
 
 .message-content {
+    flex: 1;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 0.8em 1.2em;
     border-radius: 15px;
     position: relative;
-    max-width: calc(100% - 60px);
+    max-width:80%;
+    min-width: 120px;
 }
 
 .chat-message.miura .message-content {
@@ -143,7 +145,7 @@ h1 {
     /* 画面幅が768px以下の場合に適用されるスタイル（タブレットや大きめのスマホ向け） */
     body {
         padding: 1em 0.5em; /* 小さな画面向けのパディング調整 */
-        font-size: 17px;
+        font-size: 19px;
     }
 
     .container {
@@ -173,7 +175,8 @@ h1 {
     .message-content {
         font-size: 0.9em; /* **ここが吹き出しのフォントサイズを携帯向けに設定する箇所です** */
         padding: 0.7em 1em; /* 吹き出しのパディングを調整 */
-        max-width: calc(100% - 50px); /* アイコンが小さくなった分、最大幅を調整 */
+        max-width: calc(100% - 50px);
+        min-width: 80px; 
     }
 
     /* 吹き出しの矢印の位置とサイズを調整 */
@@ -208,9 +211,8 @@ h1 {
 }
 
 @media (max-width: 480px) {
-    /* さらに小さな画面（一部のスマホなど）向けの調整 */
     .message-content {
-        font-size: 16px;
+        font-size: 16px; 
         min-width: 120px; 
     }
 }
