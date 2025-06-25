@@ -154,7 +154,7 @@
         /* 常に表示される詳細テキスト */
         .description-text {
             display: block; /* ブロック要素にして縦に配置 */
-            font-size: 0.9em; /* フォントサイズを調整 */
+            font-size: 1em; /* フォントサイズを調整 */
             color: #4a4a4a; /* 落ち着いた文字色 */
             padding: 0 1em 1em; /* パディングを調整 */
             text-align: left;
@@ -194,7 +194,7 @@
                 grid-column: span 1;
             }
             }.image-note {
-        font-size: 0.8em;
+        font-size: 1.0em;
         }
         .section-title-block {
         display: inline-block;
