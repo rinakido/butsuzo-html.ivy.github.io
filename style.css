@@ -1,6 +1,445 @@
  body {
             margin: 0;
+            background-color: #1c2233; /* 鉄紺 */ body {
+            margin: 0;
             background-color: #1c2233; /* 鉄紺 */
+            font-family: "Zen Maru Gothic", sans-serif;
+            color: #f8f8f8; /* 背景が濃い色なので、文字色は明るい色に修正 */
+        }
+        header {
+  background-color: #1c2233;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  padding: 2em 0;
+  text-align: center;
+  border-bottom: 2px solid #a3337c;
+  position: relative;
+}
+
+        header h1 {
+            font-size: 2em;
+            color: #cca6bf; /* 紅藤色 */
+            letter-spacing: 0.1em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5em;
+            font-family: 'Zen Kurenaido', sans-serif;
+        }
+        header h1::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            height: 4%;
+            background-color: #d4af37;
+        }
+        header h1::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            height: 2px;
+            background-color: #7229a9;
+        }
+        .intro, .architecture, .essay { /* .miura-interview-section はこのファイルには含まれないので削除 */
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: rgba(242, 244, 245, 0.1); /* 月白の淡い背景 */
+            border-left: 5px solid #cca6bf; /* 紅藤色のアクセント */
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #f0f0f0; /* 全体で#f0f0f0を使うと読みやすい */
+        }
+        main > section {
+            padding: 3em 1em;
+        }
+        .section-title {
+            text-align: center;
+            color: #cca6bf;
+            font-family: 'Zen Kurenaido', sans-serif;
+            font-size: 1.8em;
+            margin: 2em auto 1em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #d4af37;
+            display: inline-block;
+            background: linear-gradient(to right, #08072376, transparent); /* 右に流れるグラデーション */
+            padding-left: 1em; /* グラデーションの開始位置調整 */
+            padding-right: 1em; /* タイトルの左右に余白 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+        }
+        
+
+        /* --- ギャラリー（仏像と建築の両方に適用） --- */
+        .gallery, .arch-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* minmaxを調整 */
+            gap: 1.5em;
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ギャラリーアイテム共通のスタイル */
+        /* .item, .arch-item を a タグとして扱い、全体をリンク化 */
+        .item, .arch-item {
+            position: relative;
+            background-color: #f2f4f5; /* 背景色を追加 */
+            border: 3px solid #cca6bf; /* 枠線を追加 */
+            border-radius: 10px; /* 角丸を追加 */
+            overflow: hidden;
+            text-decoration: none; /* リンクの下線を削除 */
+            color: inherit; /* リンクの文字色を親から継承 */
+            display: flex; /* Flexboxで縦に並べる */
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー用トランジション */
+            cursor: pointer; /* カーソルをポインターにする */
+
+            opacity: 0; /* アニメーションの初期状態 */
+            transform: translateY(20px); /* アニメーションの初期状態 */
+            animation: fadeInUp 0.8s ease forwards; /* アニメーション適用 */
+        }
+
+        /* アニメーション遅延 */
+        .item:nth-child(1), .arch-item:nth-child(1) { animation-delay: 0.1s; }
+        .item:nth-child(2), .arch-item:nth-child(2) { animation-delay: 0.2s; }
+        .item:nth-child(3), .arch-item:nth-child(3) { animation-delay: 0.3s; }
+        .item:nth-child(4), .arch-item:nth-child(4) { animation-delay: 0.4s; }
+        .item:nth-child(5), .arch-item:nth-child(5) { animation-delay: 0.5s; }
+        .item:nth-child(6), .arch-item:nth-child(6) { animation-delay: 0.6s; }
+        .item:nth-child(7), .arch-item:nth-child(7) { animation-delay: 0.7s; }
+        .item:nth-child(8), .arch-item:nth-child(8) { animation-delay: 0.8s; }
+
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 画像のスタイル */
+        .item img, .arch-item img {
+            width: 100%;
+            height: 250px; /* 統一した高さに調整 */
+            object-fit: contain; /* 画像が枠内に全て収まるように変更 */
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            flex-shrink: 0; /* 画像が縮まないように */
+        }
+
+        /* ホバー効果 (アイテム全体を浮かせて、影を強調する) */
+        .item:hover, .arch-item:hover {
+            transform: translateY(-5px); /* アイテム全体を少し上に移動 */
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6); /* 金色の影を濃くして"光る"効果 */
+        }
+
+        /* アイテムのタイトル（常に表示される文字） */
+        .item span, .arch-item span {
+            display: block; /* ブロック要素にして縦に配置 */
+            padding: 0.5em 1em 0.2em; /* パディングを調整 */
+            font-size: 1.1em;
+            font-weight: bold; /* 太字にする */
+            color: #1c2233; /* 文字色 */
+            background-color: #f2f4f5; /* 白系の背景色 */
+            text-align: center;
+        }
+
+        /* 常に表示される詳細テキスト */
+        .description-text {
+            display: block; 
+            font-size: 1.1em; 
+             font-weight: 500;
+            color: #4a4a4a; 
+            padding: 0 1em 1em; 
+            text-align: left;
+            line-height: 1.5; 
+            background-color: #f2f4f5; 
+            border-radius: 0 0 8px 8px;
+            flex-grow: 1; 
+        }
+        
+        /* 新しいフッターリンクのスタイル */
+        .footer-secret-link {
+            font-size: 1em; /* 小さめ */
+            color: #666; /* 目立たない色 */
+            text-decoration: none; /* 下線なし */
+            transition: color 0.3s ease;
+            display: block; /* 独立した行に */
+            margin-top: 0.5em; /* 上の要素との間に少し隙間 */
+        }
+        .footer-secret-link:hover {
+            color: #d4af37; /* ホバーで少し強調 */
+        }
+
+
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #1c2233;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            .gallery, .arch-gallery {
+                grid-template-columns: 1fr;
+            }
+            .item.large {
+                grid-column: span 1;
+            }
+            }.image-note {
+        font-size: 1.0em;
+        }
+        .section-title-block {
+        display: inline-block;
+        background-color: #EFE6DD; /* 和紙風の淡い生成り色 */
+        color: #4B382A;
+        font-size: 1.8rem;
+        font-family: "Zen Kurenaido", serif;
+        padding: 0.4em 1em;
+        border-left: 6px solid #A68A64; /* 左の飾り線 */
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .button {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #1c2233; /* 鉄紺 */
+        color: #d4af37; /* 金文字 */
+        border: 2px solid #d4af37;
+        border-radius: 6px;
+        font-family: 'Zen Kurenaido', sans-serif;
+        font-size: 1.15em;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+.button:hover {
+    background-color: #2a2f42; /* やや明るい鉄紺 */
+    color: #fffbe8; /* 淡い金白でホバー時も上品に */
+    border-color: #d4af37;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4); /* 金の柔らかな影 */
+}
+
+        section img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        }
+/* intro-flex全体 */
+.intro-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2.5em;
+    padding: 3em 1.5em;
+    max-width: 1100px;
+    margin: auto;
+     border-left: 6px solid #4a6fa5; /* 深いコバルトブルー */
+    border-right: 6px solid #4a6fa5; /* 深いコバルトブルー */
+    border-bottom: 3px solid #4a6fa5; /* 深いコバルトブルー */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(74, 111, 165, 0.3);
+    position: relative;  /* ::before用に必須 */
+    z-index: 1;
+    overflow: hidden;
+}
+
+.intro-flex img {
+    width: 50vw;      /* 画面幅の半分 */
+    max-width: 600px; /* 最大600px */
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile {
+    padding: 2.5em 2em;
+    background-color: rgba(27, 29, 32, 0.65); /* 透け感のあるダークグレー */
+    color: #cfd2d6; /* クールなライトグレー */
+    margin-top: 3em;
+    font-family: "Zen Maru Gothic", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: blur(6px); /* 背景を柔らかくぼかす */
+}
+
+
+
+/* ホバー時の拡大・影 */
+.intro-flex img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* 文章部分 */
+.intro-flex .text-block {
+    max-width: 520px;
+    font-size: 1.15em;
+    line-height: 1.9;
+    color:#e0e6ee;
+    font-family: "Zen Kurenaido", "Zen Maru Gothic", serif;
+    background-color: rgba(40, 60, 80, 0.4);
+    padding: 1.2em;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(120, 180, 255, 0.1);
+}
+    
+
+/* 画面幅が768px以下のとき（スマホなど） */
+@media screen and (max-width: 768px) {
+    .intro-flex {
+        flex-direction: column;  /* 縦積み */
+        padding: 2em 1em;
+    }
+    .intro-flex img {
+        width: 100%;    /* 画面幅いっぱい */
+        max-width: 100%; 
+        margin-bottom: 1.5em;
+    }
+    .intro-flex .text-block {
+        max-width: 100%;
+    }
+}
+/* 背景に光の筋（light rays）を追加 */
+.intro-flex::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background:
+       radial-gradient(circle at center, rgba(170, 220, 255, 0.08), transparent 60%), /* 淡い水色の光 */
+      linear-gradient(120deg, rgba(74, 111, 165, 0.04) 0%, transparent 100%); /* ボーダーと同系色の光 */
+    transform: translateX(-50%) rotate(5deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* スクロールフェード用 */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+    
+}
+.isozaki {
+  max-width: 900px;       /* 幅を指定 */
+  margin: 3em auto 5em;   /* 上は3em、左右autoで中央寄せ、下は5em */
+  position: relative;
+  padding: 5em 2em;
+  background: linear-gradient(
+    to bottom, 
+    #e6e6e6 0%, 
+    #3a435e 100%
+  );
+  color: #1c2233;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 30px 10px rgba(28, 34, 51, 0.6);
+}
+
+
+.isozaki::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.85); /* 白の半透明オーバーレイ */
+  z-index: 0;
+  pointer-events: none; /* 背景に影響なし */
+}
+
+.isozaki-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  border-left: 4px solid #1c2233;
+  padding-left: 2em;
+  background: transparent; /* 背景は透過 */
+}
+
+.isozaki h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.05em;
+}
+
+.isozaki h3 {
+  font-size: 1.3em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: #2a2a2a;
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.2em;
+}
+
+.isozaki p {
+  line-height: 1.8;
+  margin-bottom: 1.5em;
+}
+
+.isozaki ul {
+  list-style-type: square;
+  padding-left: 1.5em;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+.isozaki {
+  position: relative;
+  padding: 5em 2em;
+  background: linear-gradient(
+    to bottom, 
+    #e6e6e6 0%, 
+    #3a435e 100%
+  );
+  color: #1c2233;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 30px 10px rgba(28, 34, 51, 0.6);
+}
+
+.isozaki::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+
+
             font-family: "Zen Maru Gothic", sans-serif;
             color: #f8f8f8; /* 背景が濃い色なので、文字色は明るい色に修正 */
         }
