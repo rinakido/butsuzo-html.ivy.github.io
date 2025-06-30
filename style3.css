@@ -1,0 +1,99 @@
+.isozaki {
+  max-width: 900px;       /* 幅を指定 */
+  margin: 3em auto 5em;   /* 上は3em、左右autoで中央寄せ、下は5em */
+  position: relative;
+  padding: 5em 2em;
+  background: linear-gradient(
+    to bottom, 
+    #e6e6e6 0%, 
+    #3a435e 100%
+  );
+  color: #1c2233;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 30px 10px rgba(28, 34, 51, 0.6);
+}
+
+body {
+  background-color: #1c2233; /* 鉄紺 */
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  padding: 2em;
+}
+
+.isozaki {
+  max-width: 900px;
+  margin: 3em auto 5em;
+  position: relative;
+  padding: 5em 2em;
+  background: linear-gradient(to bottom, #e6e6e6 0%, #3a435e 100%);
+  color: #1c2233;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 30px 10px rgba(28, 34, 51, 0.6);
+}
+
+.isozaki::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.isozaki-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  border-left: 4px solid #1c2233;
+  padding-left: 2em;
+  background: transparent;
+}
+
+.isozaki h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.05em;
+}
+
+.isozaki h3 {
+  font-size: 1.3em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: #2a2a2a;
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.2em;
+}
+
+.isozaki p {
+  line-height: 1.8;
+  margin-bottom: 1.5em;
+}
+
+.isozaki ul {
+  list-style-type: square;
+  padding-left: 1.5em;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 3em;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #f8f8f8;
+}
