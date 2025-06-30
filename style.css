@@ -164,19 +164,15 @@
             border-radius: 0 0 8px 8px;
             flex-grow: 1; 
         }
-        
-        /* 新しいフッターリンクのスタイル */
-        .footer-secret-link {
-            font-size: 1em; /* 小さめ */
-            color: #666; /* 目立たない色 */
-            text-decoration: none; /* 下線なし */
-            transition: color 0.3s ease;
-            display: block; /* 独立した行に */
-            margin-top: 0.5em; /* 上の要素との間に少し隙間 */
-        }
-        .footer-secret-link:hover {
-            color: #d4af37; /* ホバーで少し強調 */
-        }
+      
+
+/* スマホ対応：文字サイズを少し小さく */
+@media (max-width: 600px) {
+  .banner-link {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
+}
 
 
 
@@ -354,93 +350,49 @@
     transform: translateY(0);
     
 }
-.isozaki {
-  max-width: 900px;       /* 幅を指定 */
-  margin: 3em auto 5em;   /* 上は3em、左右autoで中央寄せ、下は5em */
-  position: relative;
-  padding: 5em 2em;
-  background: linear-gradient(
-    to bottom, 
-    #e6e6e6 0%, 
-    #3a435e 100%
-  );
-  color: #1c2233;
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 0 30px 10px rgba(28, 34, 51, 0.6);
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em 1em;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+.gallery-button-container {
+  text-align: center;
+  background-color: #f2f4f5;
+  padding: 1em;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+}
+
+.gallery-button-container .button {
+  font-size: 1em;
+  padding: 10px 20px;
+  background-color: #1c2233;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+  border-radius: 6px;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.gallery-button-container .button:hover {
+  background-color: #2a2f42;
+  color: #fffbe8;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 
-.isozaki::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.85); /* 白の半透明オーバーレイ */
-  z-index: 0;
-  pointer-events: none; /* 背景に影響なし */
-}
-
-.isozaki-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  border-left: 4px solid #1c2233;
-  padding-left: 2em;
-  background: transparent; /* 背景は透過 */
-}
-
-.isozaki h2 {
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-  letter-spacing: 0.05em;
-}
-
-.isozaki h3 {
-  font-size: 1.3em;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-  color: #2a2a2a;
-  border-bottom: 1px solid #999;
-  padding-bottom: 0.2em;
-}
-
-.isozaki p {
-  line-height: 1.8;
-  margin-bottom: 1.5em;
-}
-
-.isozaki ul {
-  list-style-type: square;
-  padding-left: 1.5em;
-  line-height: 1.7;
-  margin-bottom: 1.5em;
-}
-.isozaki {
-  position: relative;
-  padding: 5em 2em;
-  background: linear-gradient(
-    to bottom, 
-    #e6e6e6 0%, 
-    #3a435e 100%
-  );
-  color: #1c2233;
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 0 30px 10px rgba(28, 34, 51, 0.6);
-}
-
-.isozaki::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.6);
-  z-index: 0;
-  pointer-events: none;
-}
 
 
 
