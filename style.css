@@ -168,14 +168,27 @@
 
 /* スマホ対応：文字サイズを少し小さく */
 @media (max-width: 600px) {
-  .banner-link {
-    font-size: 1em;
-    padding: 0.5em 1em;
+    body {
+    font-size: 1.1em;
+  }
+
+  .intro,
+  .text-block,
+  .profile,
+  .description-text,
+  .essay {
+  font-size: 1.25em; /* スマホ用に拡大 */
+  line-height: 1.9;
+  }
+
+  .image-note {
+    font-size: 1.2em; /* 補足も読みやすく */
   }
 }
-
-
-
+  .banner-link {
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+  }
         footer {
             text-align: center;
             padding: 1em 0;
@@ -195,7 +208,7 @@
                 grid-column: span 1;
             }
             .image-note {
-                font-size: 1.2em; /* スマホでは大きめにして読みやすく */
+                font-size: 1.3em; /* スマホでは大きめにして読みやすく */
             }
         }
 
@@ -217,7 +230,7 @@
         border: 2px solid #d4af37;
         border-radius: 6px;
         font-family: 'Zen Kurenaido', sans-serif;
-        font-size: 1.15em;
+        font-size: 1.3em;
         font-weight: 600;
         letter-spacing: 0.05em;
         text-align: center;
@@ -295,7 +308,7 @@
 /* 文章部分 */
 .intro-flex .text-block {
     max-width: 520px;
-    font-size: 1.15em;
+    font-size: 1.3em;
     line-height: 1.9;
     color:#e0e6ee;
     font-family: "Zen Kurenaido", "Zen Maru Gothic", serif;
